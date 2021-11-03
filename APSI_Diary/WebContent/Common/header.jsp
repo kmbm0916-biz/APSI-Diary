@@ -31,27 +31,27 @@
 		</h2>
 		<a class="account">
 			<%
+				request.setCharacterEncoding("utf-8");
 				
-			
-   				Cookie cookie = null;
+				Cookie cookie = null;
    				Cookie[] cookies = null;
    				
    				String account_user_id;
    				
    				// 배열인 쿠키의 데이터를 가져옵니다.
    				cookies = request.getCookies();
-   				if( cookies != null ){
+   				if( cookies != null){
       				for(int i = 0; i < cookies.length; i++){
          				cookie = cookies[i];
         				
-         				if(cookie.getName().equals("user_id")) {
+         				/* if(cookie.getName().equals("user_id")) {
          					account_user_id = cookie.getValue();
-         				}
+         				} */
          				
-         				/* out.print("매개변수 이름 : " + cookie.getName());
+         				out.print("매개변수 이름 : " + cookie.getName());
          				out.print("<br>");
          				out.print("매개변수 값 : " + URLDecoder.decode(cookie.getValue(), "utf-8") +" <br>");
-         				out.print("------------------------------------<br>"); */
+         				out.print("------------------------------------<br>");
      				 }
   				} 
    				else {
