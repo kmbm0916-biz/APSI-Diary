@@ -92,4 +92,7 @@ section {
 	margin-top : 30px;
 	width : 1024px;
 	height : 1000px;
+	background-color : #efefef;
+	border-top-left-radius : 20px;
+	border-top-right-radius : 20px;
 }

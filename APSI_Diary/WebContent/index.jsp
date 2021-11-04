@@ -78,10 +78,10 @@
 	</section>
 	<footer>
 		<div class="footer-left">
-			<a href="https://www.instagram.com/rkdals916/">
+			<a href="https://www.instagram.com/rkdals916/" target="_blank">
 				<img src="./Image/icon_instagram.png" alt="instagram" width="40px" height="40px">
 			</a>
-			<a href="https://github.com/kmbm0916-biz">
+			<a href="https://github.com/kmbm0916-biz" target="_blank">
 				<img src="./Image/icon_github.png" alt="github" width="40px" height="40px">
 			</a>
 		</div>
