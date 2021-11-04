@@ -13,28 +13,30 @@
 </head>
 <body>
 	<header>
-		<h2>
-		<%
-			if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/index.jsp")) {
-				out.print("DIARY");
-			}
-			else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/login.jsp")) {
-				out.print("LOGIN");
-			}
-			else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/register.jsp")) {
-				out.print("REGISTER");
-			}
-			else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/query.jsp")) {
-				out.print("QUERY");
-			}
-			else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/mypage.jsp")) {
-				out.print("MYPAGE");
-			}
-			else {
-				out.print("UNDEFINDED PAGE");
-			}
-		%>
-		</h2>
+		<a href="./index.jsp">
+			<h2>
+				<%
+					if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/index.jsp")) {
+						out.print("DIARY");
+					}
+					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/login.jsp")) {
+						out.print("LOGIN");
+					}
+					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/register.jsp")) {
+						out.print("REGISTER");
+					}
+					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/query.jsp")) {
+						out.print("QUERY");
+					}
+					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI_Diary/mypage.jsp")) {
+						out.print("MYPAGE");
+					}
+					else {
+						out.print("UNDEFINDED PAGE");
+					}
+				%>
+			</h2>
+		</a>
 		<a class="account" href="../mypage.jsp">
 			<%
 				request.setCharacterEncoding("utf-8");
