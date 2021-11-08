@@ -30,6 +30,6 @@
 		}
 	%>
 	<br><br>
-	<a href="./Common/header.jsp">쿠키값 확인창으로 이동</a>
+	<a href="./index.jsp">쿠키값 확인창으로 이동</a>
 </body>
 </html>
