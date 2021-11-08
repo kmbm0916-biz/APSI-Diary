@@ -70,11 +70,23 @@
 		</a>
 	</header>
 	<section>
-		<table>
-			<tr>
-				<td>d</td>
-			</tr>
-		</table>
+		<div class="main_board">
+			<h3 class="board_title">Recent Board</h3>
+			<table>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Author</th>
+					<th>Date</th>
+				</tr>
+				<tr>
+					<td>Test</td>
+					<td>Test</td>
+					<td>Admin</td>
+					<td>2021-11-08</td>
+				</tr>
+			</table>
+		</div>
 	</section>
 	<footer>
 		<div class="footer-left">

@@ -96,3 +96,14 @@ section {
 	border-top-left-radius : 20px;
 	border-top-right-radius : 20px;
 }
+
+.main_board {
+	margin : 0 auto;
+	width : 900px;
+}
+
+.board_title {
+	margin : 0 auto;
+	text-align : center;
+	
+}
