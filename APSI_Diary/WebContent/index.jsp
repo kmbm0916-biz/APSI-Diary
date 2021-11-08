@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="DBPKG.Util" %>
 <%@ page import="java.net.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +73,22 @@
 	</header>
 	<section>
 		<div class="main_board">
-			<h3 class="board_title">Recent Board</h3>
+			<h2 class="board_title">Recent Board</h2>
+			<%
+				request.setCharacterEncoding("UTF-8");
+
+				Connection conn = null;
+				Statement stmt = null;
+				
+				try{
+					conn = Util.getConnection();
+					stmt = conn.createStatement();
+					
+					String sql = "SELECT title, description, author, substr(b_date, 1, 10) date_info FROM board";
+					ResultSet rs = stmt.executeQuery(sql);
+				
+				
+			%>
 			<table>
 				<tr>
 					<th>Title</th>
@@ -79,12 +96,24 @@
 					<th>Author</th>
 					<th>Date</th>
 				</tr>
+				<%
+					while(rs.next()) {
+				%>
 				<tr>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Admin</td>
-					<td>2021-11-08</td>
+					<td><%=rs.getString(1) %></td>
+					<td><%=rs.getString(2) %></td>
+					<td><%=rs.getString(3) %></td>
+					<td><%=rs.getString(4) %></td>
 				</tr>
+				<%
+					}
+				
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+					out.print("SQL dosen't exist.");
+				}
+				%>
 			</table>
 		</div>
 	</section>
