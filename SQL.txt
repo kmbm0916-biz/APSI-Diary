@@ -1,0 +1,26 @@
+conn system/11111
+SET AUTOCOMMIT ON;
+
+CREATE TABLE user_info(
+user_id VARCHAR2(20),
+user_email VARCHAR2(100),
+user_pw VARcHAR2(40),
+PRIMARY KEY(user_id));
+COMMIT;
+
+CREATE TABLE board(
+title VARCHAR2(50),
+description VARCHAR2(100),
+author VARCHAR2(20),
+b_date DATE,
+PRIMARY KEY(title));
+COMMIT;
+
+INSERT INTO user_info VALUES('admin', 'admin@gmail.com', 'admin1234');
+COMMIT;
+
+INSERT INTO board VALUES('Test', 'Test', 'Admin', '2021-11-08');
+COMMIT;
+
+INSERT INTO board VALUES('Test', 'Test', 'Admin2', '2021-11-08');
+COMMIT;
