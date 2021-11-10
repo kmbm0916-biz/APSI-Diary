@@ -4,6 +4,7 @@
 <%@ page import="java.net.*" %>
 <%@ page import="DBPKG.Util" %>
 <%
+	try {
 	request.setCharacterEncoding("utf-8");
 
 	Cookie cookie = null;
@@ -27,9 +28,11 @@
 			out.print("------------------------------------<br>"); */
 		}
 		if(account_user_id == null){
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("./login.jsp");
 		}
 	} 
+	}
+	catch(Exception e) {
 %>
 <!DOCTYPE html>
 <html>
@@ -37,6 +40,8 @@
 	<meta charset="UTF-8">
 	<title>APSI-Diary</title>
 	<link rel="stylesheet" href="./StyleSheet/mypage.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -69,6 +74,11 @@
 			<%
 				request.setCharacterEncoding("utf-8");
    				
+				Cookie cookie = null;
+				Cookie[] cookies = null;
+			
+				String account_user_id = null;
+			
    				// 배열인 쿠키의 데이터를 가져옵니다.
    				cookies = request.getCookies();
    				if( cookies != null){
@@ -136,5 +146,8 @@
 			<p>Copyright &copy; Kangmin Kim All rights reserved.</p>
 		</div>
 	</footer>
+	<%
+	}
+	%>
 </body>
 </html>
