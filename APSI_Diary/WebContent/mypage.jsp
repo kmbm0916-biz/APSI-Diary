@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.net.*" %>
+<%@ page import="DBPKG.Util" %>
 <%
 	request.setCharacterEncoding("utf-8");
 
@@ -99,9 +100,27 @@
 				<img src="./Image/default-user-image.png">
 			</div>
 			<div class="user_info">
-				
+				<p class="user_info-id">
+					<%
+						Connection conn = Util.getConnection();
+						Statement stmt = conn.createStatement();
+						
+						String sql = "SELECT user_id, user_email FROM user_info WHERE user_id = '" + account_user_id + "'";
+						ResultSet rs = stmt.executeQuery(sql);
+						rs.next();
+						out.print(rs.getString(1));
+					%>
+				</p>
+				<p class="user_info-email">
+					<%
+						out.print(rs.getString(2));
+					%>
+				</p>
 			</div>
 		</div>
+		<form action="" method="get">
+				<button class="modify_profile">프로필 수정</button>
+			</form>
 	</section>
 	<footer>
 		<div class="footer-left">

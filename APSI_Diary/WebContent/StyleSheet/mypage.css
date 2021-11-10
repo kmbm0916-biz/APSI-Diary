@@ -101,22 +101,41 @@ section {
 .account_box {
 	margin : 0 auto;
 	padding : 50px 0;
-	width : 700px;
+	width : 500px;
 	height: 400px;
-	background-color : #ff44ff;
+	
+	display : flex;
+	flex-direction : row;
 }
 
 .user_img {
-	width : 50px;
-	height: 50px;
+	margin-left : 150px;
+	width : 100px;
+	height: 100px;
 }
 
 .user_img > img {
-	width : 50px;
-	height : 50px;
-	border-radius : 20px;
+	width : 100px;
+	height : 100px;
+	border-radius : 100px;
 }
 
+.user_info {
+	padding-top : 10px;
+	margin-left : 100px;
+}
 
+.user_info-id {
+	font-size : 30px;
+}
 
+.user_info-email {
+	font-size : 20px;
+}
+
+.modify_profile {
+	margin : 0 auto;
+	width : 100px;
+	height : 40px;
+}
 
