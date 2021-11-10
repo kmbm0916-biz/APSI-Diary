@@ -21,6 +21,9 @@ COMMIT;
 INSERT INTO user_info VALUES('admin', 'admin@gmail.com', 'admin1234');
 COMMIT;
 
+INSERT INTO user_info VALUES('kmbm0916', 'kmbm0916@gmail.com', 'kangmin0916');
+COMMIT;
+
 INSERT INTO board VALUES('Test', 'Test', 'admin', '2021-11-08');
 COMMIT;
 
