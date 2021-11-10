@@ -39,7 +39,7 @@
 				%>
 			</h2>
 		</a>
-		<a class="account" href="../mypage.jsp">
+		<a class="account" href="./mypage.jsp">
 			<%
 				request.setCharacterEncoding("utf-8");
 				
@@ -63,7 +63,12 @@
          				out.print("매개변수 값 : " + URLDecoder.decode(cookie.getValue(), "utf-8") +" <br>");
          				out.print("------------------------------------<br>"); */
      				}
-      				out.print(account_user_id);
+      				if(account_user_id == null){
+      					out.print("Login");
+      				}
+      				else {
+      					out.print(account_user_id);
+      				}
   				} 
    				else {
      				 out.println("<h2>쿠키를 찾을 수 없습니다.</h2>");
