@@ -8,22 +8,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>APSI-Diary</title>
-	<link rel="stylesheet" href="./StyleSheet/login.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="./StyleSheet/insert.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	<script>
 		function check() {
-			if(document.getElementById("user_id").value == "") {
-				alert("ID를 입력하십시오.");
-				document.getElementById("user_id").focus();
+			if(document.getElementById("title").value == "") {
+				alert("제목을 입력하십시오.");
+				document.getElementById("title").focus();
 				return false;
 			}
-			else if(document.getElementById("user_pw").value == "") {
-				alert("비밀번호를 입력하십시오.");
-				document.getElementById("user_pw").focus();
+			else if(document.getElementById("description").value == "") {
+				alert("내용을 입력하십시오.");
+				document.getElementById("description").focus();
 				return false;
 			}
 		}
@@ -48,6 +48,9 @@
 					}
 					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI-Diary/mypage.jsp")) {
 						out.print("MYPAGE");
+					}
+					else if(request.getRequestURL().toString().equals("http://localhost:8090/APSI-Diary/insert.jsp")) {
+						out.print("ENROLL");
 					}
 					else {
 						out.print("UNDEFINDED PAGE");
@@ -90,19 +93,25 @@
 		</a>
 	</header>
 	<section>
-		<form action="./Actions/action1.jsp" onsubmit="return check()" method="get">
+		<form action="./Actions/action2.jsp" onsubmit="return check()" method="get">
 			<table>
+				<!-- <tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Author</th>
+					<th>Date</th>
+				</tr> -->
 				<tr>
-					<td class="login_label"><p>ID</p></td>
-					<td><input type="text" name="user_id" class="login_input" id="user_id"></td>
+					<td class="input_label"><p>Title</p></td>
+					<td><input type="text" name="title" class="input_title" id="title"></td>
 				</tr>
 				<tr>
-					<td class="login_label"><p>PW </p></td>
-					<td><input type="password" name="user_pw" class="login_input" id="user_pw"></td>
+					<td class="input_label"><p>Description</p></td>
+					<td><textarea name="description" class="input_des" id="description" rows="8" cols="53"></textarea>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<button type="submit" class="btn btn-outline-primary login_submit">로그인</button>
+					<td colspan="2" class="input_btn">
+						<button type="submit" class="btn btn-primary input_submit">등록</button>
 					</td>
 				</tr>
 			</table>

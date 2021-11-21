@@ -78,6 +78,15 @@
 	</header>
 	<section>
 		<div class="main_board">
+			<nav>
+				<a class="link_insert" href="./insert.jsp">
+					<p class="link_select">등록</p>
+				</a>
+				<span class="link_insert">|</span>
+				<a class="link_select" href="./query.jsp">
+					<p class="link_select">검색</p>
+				</a>
+			</nav>
 			<h2 class="board_title">Recent Board</h2>
 			<%
 				request.setCharacterEncoding("UTF-8");

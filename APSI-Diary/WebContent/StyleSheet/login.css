@@ -90,10 +90,44 @@ footer {
 
 section {
 	margin : 0 auto;
-	margin-top : 30px;
 	width : 1024px;
 	height : 500px;
 	background-color : #efefef;
 	border-top-left-radius : 20px;
 	border-top-right-radius : 20px;
 }
+
+form {
+	margin : 0 auto;
+	margin-top : 60px;
+	width : 300px;
+	height : 300px;
+	background-color : #808080;
+	display : flex;
+	flex-direction : column;
+	border-radius : 10px;
+}
+
+table {
+	margin-top : 30px;
+	margin-left : 30px;
+	text-align : center;
+}
+
+.login_input {
+	width : 200px;
+	height : 30px;
+	float : left;
+}
+
+.login_label {
+	text-align : left;
+	font-size : 20px;
+}
+
+.login_submit {
+	margin-top : 10px;
+	float : right;
+	width : 200px;
+}
+

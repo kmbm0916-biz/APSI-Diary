@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>APSI-Diary</title>
-	<link rel="stylesheet" href="./StyleSheet/login.css">
+	<link rel="stylesheet" href="./StyleSheet/query.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
@@ -16,14 +16,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	<script>
 		function check() {
-			if(document.getElementById("user_id").value == "") {
-				alert("ID를 입력하십시오.");
-				document.getElementById("user_id").focus();
-				return false;
-			}
-			else if(document.getElementById("user_pw").value == "") {
-				alert("비밀번호를 입력하십시오.");
-				document.getElementById("user_pw").focus();
+			if(document.getElementById("search_text").value == "") {
+				alert("검색어를 입력하십시오.");
+				document.getElementById("search_text").focus();
 				return false;
 			}
 		}
@@ -90,23 +85,51 @@
 		</a>
 	</header>
 	<section>
-		<form action="./Actions/action1.jsp" onsubmit="return check()" method="get">
-			<table>
-				<tr>
-					<td class="login_label"><p>ID</p></td>
-					<td><input type="text" name="user_id" class="login_input" id="user_id"></td>
-				</tr>
-				<tr>
-					<td class="login_label"><p>PW </p></td>
-					<td><input type="password" name="user_pw" class="login_input" id="user_pw"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit" class="btn btn-outline-primary login_submit">로그인</button>
-					</td>
-				</tr>
-			</table>
+		<form action="./query.jsp" method="get" onsubmit="return check()">
+			Search&nbsp;&nbsp;<input type="text" name="search_text" id="search_text"><button type="submit" class="btn btn-outline-primary login_submit">검색</button>
 		</form>
+		<table>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Author</th>
+					<th>Date</th>
+				</tr>
+				<%
+				request.setCharacterEncoding("UTF-8");
+
+				Connection conn = null;
+				Statement stmt = null;
+				
+				String search_text = Util.getParamNN(request.getParameter("search_text"));
+				
+				try{
+					conn = Util.getConnection();
+					stmt = conn.createStatement();
+					
+					if(search_text != "") {
+					
+					String sql = "SELECT title, description, author, substr(b_date, 1, 10) date_info FROM board WHERE title LIKE '%" + search_text + "%'";
+					ResultSet rs = stmt.executeQuery(sql);
+				
+					while(rs.next()) {
+				%>
+				<tr>
+					<td><%=rs.getString(1) %></td>
+					<td><%=rs.getString(2) %></td>
+					<td><%=rs.getString(3) %></td>
+					<td><%=rs.getString(4) %></td>
+				</tr>
+				<%
+					}
+					}
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+					out.print("SQL dosen't exist.");
+				}
+				%>
+			</table>
 	</section>
 	<footer>
 		<div class="footer-left">

@@ -1,4 +1,4 @@
-conn system/11111
+conn system/1234
 SET AUTOCOMMIT ON;
 
 CREATE TABLE user_info(
@@ -9,11 +9,12 @@ PRIMARY KEY(user_id));
 COMMIT;
 
 CREATE TABLE board(
-title VARCHAR2(50),
+idx NUMBER NOT NULL,
+title VARCHAR2(50) NOT NULL,
 description VARCHAR2(100),
 author VARCHAR2(20),
 b_date DATE,
-PRIMARY KEY(title),
+PRIMARY KEY(idx, title),
 FOREIGN KEY(author) REFERENCES user_info(user_id)
 );
 COMMIT;
@@ -24,8 +25,11 @@ COMMIT;
 INSERT INTO user_info VALUES('kmbm0916', 'kmbm0916@gmail.com', 'kangmin0916');
 COMMIT;
 
-INSERT INTO board VALUES('Test', 'Test', 'admin', '2021-11-08');
+INSERT INTO board VALUES(1, 'Test', 'Test', 'admin', sysdate);
 COMMIT;
 
-INSERT INTO board VALUES('Test2', 'Test', 'admin', '2021-11-08');
+INSERT INTO board VALUES(2, 'Test2', 'Test', 'admin', '2021-11-08');
+COMMIT;
+
+INSERT INTO board VALUES(3, 'Test3', 'Test', 'admin', sysdate);
 COMMIT;
